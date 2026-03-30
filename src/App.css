@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: #f4f6f8;
 }
 
 .app {
@@ -9,6 +9,7 @@ body {
   text-align: center;
 }
 
+/* FORM */
 .form {
   display: flex;
   gap: 10px;
@@ -17,50 +18,135 @@ body {
 
 .form input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s;
 }
 
+/* Input focus */
+.form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* BUTTON */
 .form button {
-  padding: 10px 15px;
+  padding: 12px 15px;
   cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #007bff;
+  color: white;
 }
 
+.form button:hover {
+  background: #0056b3;
+}
+
+/* NOTES */
 .list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
+/* NOTE CARD */
 .note {
   background: white;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: left;
-}
-
-.note p {
-  margin: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .note small {
   color: gray;
+  font-size: 12px;
 }
 
+/* ACTION BUTTONS */
 .actions {
   margin-top: 10px;
   display: flex;
   gap: 10px;
 }
 
+/* DELETE */
+.delete-btn {
+  background: #dc3545;
+}
+
+.delete-btn:hover {
+  background: #a71d2a;
+}
+
+/* EDIT */
+.edit-btn {
+  background: #28a745;
+}
+
+.edit-btn:hover {
+  background: #1e7e34;
+}
+
 button {
   border: none;
-  background: #007bff;
   color: white;
-  padding: 5px 10px;
+  padding: 6px 12px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-button:hover {
-  opacity: 0.8;
+/* ERROR */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+/* SEARCH */
+.search {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* DARK MODE */
+.dark {
+  background: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+.dark .note {
+  background: #1e1e1e;
+  color: white;
+}
+
+.dark input {
+  background: #2c2c2c;
+  color: white;
+  border: 1px solid #555;
+}
+
+.dark button {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .app {
+    margin: 20px;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+
+  .form button {
+    width: 100%;
+  }
 }

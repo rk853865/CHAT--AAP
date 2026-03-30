@@ -4,7 +4,8 @@ function NoteItem({ note, deleteNote, editNote }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(note.text);
 
-  const handleEdit = () => {
+  const handleSave = () => {
+    if (!newText.trim()) return;
     editNote(note.id, newText);
     setIsEditing(false);
   };
@@ -17,7 +18,9 @@ function NoteItem({ note, deleteNote, editNote }) {
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
           />
-          <button onClick={handleEdit}>Save</button>
+          <button className="edit-btn" onClick={handleSave}>
+            Save
+          </button>
         </>
       ) : (
         <>
@@ -27,8 +30,19 @@ function NoteItem({ note, deleteNote, editNote }) {
       )}
 
       <div className="actions">
-        <button onClick={() => deleteNote(note.id)}>Delete</button>
-        <button onClick={() => setIsEditing(!isEditing)}>Edit</button>
+        <button
+          className="delete-btn"
+          onClick={() => deleteNote(note.id)}
+        >
+          Delete
+        </button>
+
+        <button
+          className="edit-btn"
+          onClick={() => setIsEditing(!isEditing)}
+        >
+          Edit
+        </button>
       </div>
     </div>
   );

@@ -5,38 +5,33 @@ import NoteList from "./Components/NoteList";
 function App() {
   const [notes, setNotes] = useState([]);
 
-  // Load notes from localStorage
+  // Load from localStorage
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("notes"));
-    if (savedNotes) {
-      setNotes(savedNotes);
-    }
+    if (savedNotes) setNotes(savedNotes);
   }, []);
 
-  // Save notes to localStorage
+  // Save to localStorage
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
-  // Add note
+  // Add Note
   const addNote = (text) => {
-    if (!text.trim()) return;
-
     const newNote = {
       id: Date.now(),
       text,
       time: new Date().toLocaleString(),
     };
-
     setNotes([newNote, ...notes]);
   };
 
-  // Delete note
+  // Delete Note
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
-  // Edit note (Bonus)
+  // Edit Note
   const editNote = (id, newText) => {
     setNotes(
       notes.map((note) =>
